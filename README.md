@@ -1,6 +1,6 @@
 # Sistema de Reservas de Cabañas (Flask + React + Vite)
 
-Aplicación web de administración de reservas para un complejo de 16 cabañas, construida con Flask (backend) y React + Vite (frontend). En esta fase inicial, toda la información se gestiona en memoria para pruebas y validación de la lógica de negocio; la arquitectura está preparada para integrar una base de datos posteriormente.
+Aplicación web de administración de reservas para un complejo de 16 cabañas, construida con Flask (backend) y React + Vite (frontend). En esta fase inicial, toda la información se gestiona en memoria para pruebas y validación de la lógica de negocio.
 
 ## Arquitectura
 
@@ -71,7 +71,6 @@ Reglas respetadas por el seed:
 1. Crear un nuevo servicio web desde el directorio `backend/` del repositorio.
 2. Variables de entorno:
   - `PORT`: Render lo define automáticamente (no fijar manualmente).
-  - `MONGODB_URI`: cuando migres a Atlas.
 3. Comando de inicio:
   ```
   gunicorn -b 0.0.0.0:$PORT wsgi:app
@@ -96,10 +95,11 @@ Reglas respetadas por el seed:
 - Guarda secretos (URIs, tokens) como variables de entorno en Render/Vercel.
 
 ### 6) Observabilidad y backups
-- Atlas: clúster replicado, backups automáticos y opcional PITR.
 - Render/Vercel: logs y alertas básicas desde sus paneles.
 
-Con esto tienes un flujo simple, disponible y con integridad (cuando migres a Atlas con índices y transacciones). 
+## Persistencia
+
+Actualmente, el sistema opera 100% en memoria en el backend. No hay base de datos configurada y los datos se pierden al reiniciar el servidor. La arquitectura está preparada para integrar una base de datos en el futuro sin cambiar los contratos de la API.
 
 ## API (resumen)
 

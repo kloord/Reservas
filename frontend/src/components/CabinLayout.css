@@ -1,0 +1,86 @@
+.cabin-layout {
+  padding: var(--spacing-lg);
+}
+
+.layout-legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: var(--spacing-md);
+  color: #334155;
+  font-weight: 500;
+}
+
+.layout-legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.layout-legend .dot.available { background: #10b981; }
+.layout-legend .dot.occupied { background: #ef4444; }
+
+.layout-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.layout-column {
+  background: #f8fafc;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.pair-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.cabin-tile {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+  font-size: 1.125rem;
+  color: #0f172a;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabin-tile.available { background: #d1fae5; border: 2px solid #10b981; }
+.cabin-tile.occupied  { background: #fee2e2; border: 2px solid #ef4444; }
+
+/* extra tiles removed in column layout; all are functional buttons */
+
+.layout-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
